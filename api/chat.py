@@ -1,4 +1,4 @@
-from server import db, cursor, socketio, lock
+from server import db, cursor, socketio, lock, CHAT_MEDIA_PATH
 from flask_socketio import send
 import os, uuid
 
@@ -13,11 +13,11 @@ def sendMessage(data):
             name = data['name']
             fileType = data['fileType']
 
-            sender_dir = os.path.join('chat-media', sender)
-            if not os.path.exists(sender_dir):
-                os.mkdir(sender_dir)
+            mediaDirectory = os.path.join(CHAT_MEDIA_PATH, sender)
+            if not os.path.exists(mediaDirectory):
+                os.mkdir(mediaDirectory)
 
-            chat_media_dir = os.path.join(sender_dir, month)
+            chat_media_dir = os.path.join(mediaDirectory, month)
             if not os.path.exists(chat_media_dir):
                 os.mkdir(chat_media_dir)
 

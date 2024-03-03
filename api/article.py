@@ -1,4 +1,4 @@
-from server import app, db, cursor, lock
+from server import app, db, cursor, lock, ARTICLE_MEDIA_PATH
 from flask import request, jsonify
 from flask_jwt_extended import jwt_required
 import os, json, uuid
@@ -77,7 +77,7 @@ def postArticle():
     if cursor.fetchone():
         return jsonify({'status': 'duplicate'})
 
-    mediaDirectory = os.path.join('article-media', urlName)
+    mediaDirectory = os.path.join(ARTICLE_MEDIA_PATH, urlName)
 
     if not os.path.exists(mediaDirectory):
         os.mkdir(mediaDirectory)
