@@ -9,6 +9,7 @@ LOG_PATH = '/var/www/greatamericanyouth/server/logs/api-server.log'
 USER_MEDIA_PATH = '/var/www/greatamericanyouth/server/media/user'
 USER_MEDIA_URL = 'https://greatamericanyouth.com/user-media/'
 CHAT_MEDIA_PATH = '/var/www/greatamericanyouth/server/media/chat'
+CHAT_MEDIA_URL = 'https://greatamericanyouth.com/chat-media/'
 ARTICLE_MEDIA_PATH = '/var/www/greatamericanyouth/server/media/article'
 
 db = sqlite3.connect(DB_PATH, check_same_thread=False)
